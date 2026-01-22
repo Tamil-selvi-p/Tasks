@@ -1,0 +1,140 @@
+.container {
+    width: 1800px;
+    height: 600px;
+    padding: 10px;
+    border: 2px solid black;
+}
+.header {
+    /* position: fixed; */
+    height: 70px;
+    width: 1780px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    border: 3px solid white;
+    box-shadow: 3px 3px 3px 3px rgb(131, 130, 130);
+}
+.menu-header {
+    justify-self: start;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;
+}
+.menu-div {
+    text-align: right;    
+}
+.rediff-div {
+    text-align: left;    
+}
+.menu-bar {
+    padding: 0;
+    width: 85px;
+    height: 65px;
+}
+.rediff-image {
+    width: 150px;
+    height: 45px;
+    padding: 0;
+}
+.login-header {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+}
+.account {
+    font-size: 25px;
+    text-decoration: none;
+    color: grey;
+    padding: 0;
+    transition: text-decoration 2s ease 0s;
+}
+.account:hover{
+    text-decoration: underline;
+}
+.nabar-content {    
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    gap:35px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.nabar-content a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 23px;
+}
+.nabar-content a:hover {
+    border-bottom: 5px solid red;
+}
+sup {
+    color: red;
+    font-weight: bold;
+}
+.section1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    width: 1780px;
+    height: 70px;
+    border-bottom: 2px solid rgb(79, 79, 79);
+}
+.section1 div {
+    justify-self: center;
+    align-self: center;
+    font-size: 25px;
+}
+.section1 img {
+    width: 35px;
+    height: 35px;
+}
+.section1 input {
+    font-size: 25px;
+}
+.search-bttn {
+    position: relative;
+}
+.search-icon {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    z-index: 10;
+}
+.section2 {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    gap: 10px;
+    width: 1780px;
+    height: 70px;
+    border-bottom: 2px solid rgb(79, 79, 79);
+}
+.menu-section2 {
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    gap:35px;;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.menu-section2 a{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.follow-section2{
+    justify-content: end;
+    display: grid;
+    grid-template-columns: 0.5fr 0.1fr 0.1fr 0.1fr 0.1fr;
+    gap:none;
+}
+.follow{
+    font-size: 25px;
+    text-align: center;
+    padding: 15px;
+}
+.follow-section2 img{
+    width: 65px;
+    height: 65px;
+}
