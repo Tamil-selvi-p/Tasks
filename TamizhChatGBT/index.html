@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tamizh's ChatGPT</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* Custom min/max-height utilities */
+        .min-h-500{min-height:500px}
+        .max-h-500{max-height:500px;overflow:auto}
+        /* Helpful responsive example: minimum 50vh */
+        .min-vh-50{min-height:50vh}
+        /* Chat layout: clear floats to stack messages on new lines */
+        #convo li { clear: both; display: block; margin-bottom: 10px; }
+        #convo li.float-end { text-align: right; }
+        #convo li.float-start { text-align: left; }
+        /* Placeholder text color */
+        input::placeholder {
+            color: white;
+        }
+    </style>
+  </head>
+
+  <body class="bg-dark">
+    <header class="navbar navbar-expand bg-dark navbar-dark">
+      <div class="container-fluid">    
+        <a class="navbar-brand">ChatGBT</a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link btn" id="about" type="button" href="#aboutModal" >About</a></li>
+          <li class="nav-item"><a class="nav-link btn" id="features" type="button" href="#featuresModal" >Features</a></li>
+          <li class="nav-item"><a class="nav-link btn" id="learn" type="button" href="#learnModal" >Learn</a></li>
+          <li class="nav-item"><a class="nav-link btn" id="help" type="button" href="#helpModal" >Help</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link btn bg-secondary rounded" id="login" type="button" href="#login" >Login</a></li>
+          <li class="nav-item"><a class="nav-link ms-2 btn btn-outline-secondary" id="register" type="button" href="#register" >Register</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="container py-5">
+        
+        <h5 class="text-white">Conversation</h5>
+        <div class="mb-5 min-h-500 max-h-500 border" id="convo-parent">
+        	<ul class="list-unstyled" id="convo">
+            	
+            </ul>
+        </div>
+
+    	<div class="text-center bg-dark p-2">
+            <div class="input-group mb-3 border border-2 rounded">
+                <input type="text" class="form-control bg-dark border-0 text-white" placeholder="Ask me anything!" >
+                <div class="input-group-append">
+                    <button class="btn btn-light" type="button" onclick="onClickOfSendButton()">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- About Modal -->
+    <div class="modal fade" id="aboutModal">
+      <div class="modal-dialog" class="modal fade" id="aboutModal">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About ChatGBT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Welcome to Tamizh's ChatGBT</h6>
+                    <p>ChatGBT is an intelligent conversational AI assistant designed to help you with a wide range of questions and tasks.</p>
+                    
+                    <h6 class="mt-3">Features:</h6>
+                    <ul>
+                    <li>Real-time chat conversations</li>
+                    <li>Chat history tracking</li>
+                    <li>Instant AI-powered responses</li>
+                    <li>User-friendly interface</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">Version:</h6>
+                    <p>v1.0.0</p>
+                    
+                    <h6 class="mt-3">Contact & Support:</h6>
+                    <p>For help or feedback, please contact us at support@chatgpt.com</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Features Modal -->
+    <div class="modal fade" id="featuresModal">
+      <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="featuresModalLabel">Features</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Powerful Features of ChatGBT</h6>
+                    <ul>
+                    <li><strong>Real-time Chat:</strong> Engage in real-time conversations with our AI</li>
+                    <li><strong>Smart Responses:</strong> Get intelligent, context-aware answers</li>
+                    <li><strong>Chat History:</strong> Access your previous conversations anytime</li>
+                    <li><strong>Fast Processing:</strong> Instant replies to your questions</li>
+                    <li><strong>User-Friendly Interface:</strong> Simple and intuitive design</li>
+                    <li><strong>Multi-Topic Support:</strong> Ask about anything and get reliable answers</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Learn Modal -->
+    <div class="modal fade" id="learnModal" >
+      <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnModalLabel">Learn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <h6>How to Use ChatGBT</h6>
+                    <p><strong>Step 1:</strong> Type your question in the input field</p>
+                    <p><strong>Step 2:</strong> Click the "Send" button or press Enter</p>
+                    <p><strong>Step 3:</strong> Wait for the AI response</p>
+                    <p><strong>Step 4:</strong> Continue the conversation or ask new questions</p>
+                    
+                    <h6 class="mt-3">Tips for Better Results:</h6>
+                    <ul>
+                    <li>Be specific with your questions</li>
+                    <li>Provide context when needed</li>
+                    <li>Ask follow-up questions for clarification</li>
+                    <li>Use natural language for better understanding</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal fade" id="helpModal" >
+      <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">Help</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Need Help?</h6>
+                    <p>If you encounter any issues or have questions about ChatGBT, here are some resources:</p>
+                    
+                    <h6 class="mt-3">Common Issues:</h6>
+                    <ul>
+                    <li><strong>No response:</strong> Check your internet connection and try again</li>
+                    <li><strong>Slow responses:</strong> The server might be busy, please wait a moment</li>
+                    <li><strong>Unclear answers:</strong> Try rephrasing your question</li>
+                    </ul>
+                    
+                    <h6 class="mt-3">Support:</h6>
+                    <p>Email: <strong>support@chatgpt.com</strong></p>
+                    <p>We're here to help! Feel free to reach out with any questions.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" >
+      <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email or Username</label>
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="loginEmail" placeholder="Enter your email or username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control bg-secondary border-0 text-white" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Remember me
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" onclick="handleLogin()">Login</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" >
+      <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control bg-secondary border-0 text-white" id="registerEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="registerUsername" placeholder="Enter your username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control bg-secondary border-0 text-white" id="registerPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control bg-secondary border-0 text-white" id="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I agree to the Terms and Conditions
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-light" onclick="handleRegister()">Register</button>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <footer class="navbar navbar-expand bg-dark navbar-dark">
+      <div class="container">   
+      	<div class="navbar-nav">
+          <div class="nav-item">
+          	<a class="nav-link"> By messaging ChatGPT, an AI chatbot, you agree to our Terms and have read our Privacy Policy. See Cookie Preferences. Have a Great Day!</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+    	
+        function onClickOfSendButton() {
+        	let promptValue = document.querySelector("input").value;
+            if(promptValue != ""){
+                document.querySelector("button").setAttribute("disabled", "true");
+                document.getElementById('convo').innerHTML = document.getElementById('convo').innerHTML + '<li class="bg-secondary p-3 m-3 border-0 rounded-pill float-end">' + promptValue + '</li>';
+                document.querySelector("#convo-parent").scrollTo(0, document.querySelector("#convo-parent").scrollHeight);
+                try{
+                    apiCalling("https://dev.vegage.ai/chatbot/ask-me-anything?prompt=" + promptValue, {
+                        cache: "default"
+                    })
+                    .then((response) => {
+                        document.getElementById('convo').innerHTML = document.getElementById('convo').innerHTML + '<li class="bg-secondary rounded-pill ms-2 p-2 mb-3 float-start">' + response.botReply + '</li>';
+                        document.querySelector("#convo-parent").scrollTo(0, document.querySelector("#convo-parent").scrollHeight);
+
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const userId = urlParams.get('userId');
+                        saveConversation(userId, promptValue, response.botReply);
+                        document.querySelector("input").value = "";
+                    })
+                    .finally(() => {
+                        document.querySelector("button").removeAttribute("disabled");
+                    });
+                } catch(e){
+                    console.log({e});
+                }
+            }
+        }
+
+        function getHistory(userId){
+            apiCalling("https://dev.vegage.ai/chatbot/get-history?user-id=" + userId)
+            .then((response) => {
+                response.history.forEach((item) => {
+                    document.getElementById('convo').innerHTML = document.getElementById('convo').innerHTML + '<li class="bg-secondary p-2 mb-3 float-end"><span class="btn btn-small bg-dark text-white">User</span> ' + item.userPrompt + '</li>';
+                    document.getElementById('convo').innerHTML = document.getElementById('convo').innerHTML + '<li class="bg-light p-2 mb-3 float-start"><span class="btn btn-small bg-dark text-white">Bot</span> ' + item.botReply + '</li>';
+                })
+            })
+        }
+
+        function saveConversation(userId, userPrompt, botReply){
+            apiCalling("https://dev.vegage.ai/chatbot/create-chat-record", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "userId": userId,
+                    "userPrompt": userPrompt,
+                    "botReply": botReply
+                })
+            })
+            .then((response) => {
+                console.log({response});
+            })
+        }
+
+        window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId');
+            getHistory(userId);
+            
+            // Trigger send on Enter key
+            document.querySelector("input").addEventListener("keypress", function(event) {
+                if(event.key === "Enter") {
+                    onClickOfSendButton();
+                }
+            });
+        }
+    
+        function apiCalling(url, body = "") {
+            console.log("calling from apiCalling");
+            if(body)
+                return fetch(url, body).then((res) => res.json()).catch((err) => {console.log({err})});
+
+            return fetch(url).then((res) => res.json()).catch((err) => {console.log({err})});   
+        }
+
+        const aboutBtn = document.querySelector('#about');
+        const featuresBtn = document.querySelector('#features');
+        const learnBtn = document.querySelector('#learn');
+        const helpBtn = document.querySelector('#help');
+
+        aboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'));
+            aboutModal.show();
+        });
+
+        featuresBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const featuresModal = new bootstrap.Modal(document.getElementById('featuresModal'));
+            featuresModal.show();
+        });
+
+        learnBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const learnModal = new bootstrap.Modal(document.getElementById('learnModal'));
+            learnModal.show();
+        });
+
+        helpBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const helpModal = new bootstrap.Modal(document.getElementById('helpModal'));
+            helpModal.show();
+        });
+
+        const loginBtn = document.querySelector('#login');
+        const registerBtn = document.querySelector('#register');
+
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        });
+
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
+        });
+
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if(email && password) {
+                console.log('Login attempt with:', {email, password});
+                alert('Login functionality to be implemented with backend');
+                // Close the modal
+                const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                loginModal.hide();
+                document.getElementById('loginForm').reset();
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+
+        function handleRegister() {
+            const email = document.getElementById('registerEmail').value;
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            if(!email || !username || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if(password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            if(!agreeTerms) {
+                alert('Please agree to the Terms and Conditions');
+                return;
+            }
+            
+            console.log('Register attempt with:', {email, username, password});
+            alert('Registration functionality to be implemented with backend');
+            // Close the modal
+            const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+            registerModal.hide();
+            document.getElementById('registerForm').reset();
+        }
+
+    </script>
+  </body>
+</html>
