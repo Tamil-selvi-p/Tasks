@@ -1,0 +1,68 @@
+body {
+    background-image: url("https://wallpapercave.com/wp/wp3011277.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the image fixed during scroll */
+}
+.form-form {
+    border: 2px solid transparent;
+    margin: 20vh auto 0 auto;
+    width: 400px;
+    height: 425px;
+    background-color: rgba(43, 41, 43, 0.5);
+    padding: 10px;
+}
+.register {
+    text-align: center;
+    color: rgb(145, 42, 5);
+    font-size: 35px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.form-form button {
+    margin: 25px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    background-color: rgb(145, 42, 5);
+    font-size: 30px;
+    color: rgba(43, 41, 43, 0.9);
+}
+
+.input-grp {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 10px
+}
+
+.input-grp label {
+    font-size: 25px;
+}
+
+.input-grp input {
+    background-color: rgba(43, 41, 43, 0.5);
+    border: 1px solid antiquewhite;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.input-grp input:focus {
+    outline: none;
+}
+
+.input-grp .error {
+    color: rgb(201, 44, 75);
+    margin: 2px 5px;
+}
+
+.input-grp.success input{
+    border-color: rgb(104, 230, 104);
+}
+
+.input-grp.error input {
+    border-color: rgb(201, 44, 75);
+}
