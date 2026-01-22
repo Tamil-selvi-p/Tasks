@@ -1,0 +1,76 @@
+body {
+    height: 600px;
+    width: 1400px;
+    border: 2px solid black;
+}
+header {
+    height: 100px;
+    width: 1350px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+}
+header div {
+    width: 1300px;
+    height: 100px;
+}
+.logo img {
+    height: 100px;
+    width: 200px;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+.time h2 {
+    text-align: right;
+    padding: 20px;
+}
+.profile-card {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10px;
+    padding: 30px;
+    border-radius: 25px;
+    background-color: lightgoldenrodyellow;
+}
+.name {
+    height: 80px;
+    text-align: center;
+    font-size: 60px;
+    color: black;
+    font-weight: bolder;
+}
+.avatar {
+    height: 80px;
+    text-align: left;
+    font-size: 60px;
+    border-radius: 20px;
+}
+img {
+    height: 78px;
+}
+.btn-section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 50px;
+    gap: 30px;
+    padding: 20px;
+}
+.btn-section div {
+    text-align: center;
+}
+button {
+    width: 75%;
+    font-size: 30px;
+    border-radius: 30px;
+    margin: 20px;
+}
+table {
+    width: 95%;
+}
+th, td, tr {
+    border: 2px solid black;
+}
+section {
+    display: grid;
+}
